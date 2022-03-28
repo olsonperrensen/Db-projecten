@@ -1,0 +1,21 @@
+db.movies.count({genre:"Comedy"})
+
+db.movies.find({$and:[{cast:"Isabelle Huppert",cast:"Pauline Etienne"}]})
+
+db.movies.deleteOne({$and:[{cast:"Isabelle Huppert",cast:"Pauline Etienne"}]})
+
+db.movies.find({viewerRating:6,viewerVotes:{$gt:20}},{_id:1,title:1,year:1})
+
+db.movies.find({$or:[{cast:"Gérard Depardieu",cast:"Cécile De France"}]},{title:1,_id:0})
+
+db.movies.find({$and:[{cast:"Gérard Depardieu",cast:"Cécile De France"}]},{title:1,_id:0})
+
+db.movies.find({viewerVotes:{$exists:true}})
+
+db.movies.find({viewerVotes:{$exists:false}})
+
+db.movies.find({viewerRating:{$gt:8.5},viewerVotes:{$gte:100}})
+
+db.movies.find({director:/^Philip/},{director:1,_id:0})
+
+db.movies.find({$and:[{cast:"Dustin Hoffman",cast:"Jessica Lange"}]})
